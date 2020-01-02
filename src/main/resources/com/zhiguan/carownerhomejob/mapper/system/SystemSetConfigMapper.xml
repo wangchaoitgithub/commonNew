@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiguan.carownerhomejob.mapper.system.SystemSetConfigMapper">
+  <resultMap id="BaseResultMap" type="com.zhiguan.carownerhomejob.domain.system.SystemSetConfig">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="is_Deleted" jdbcType="CHAR" property="isDeleted" />
+    <result column="create_Operator" jdbcType="VARCHAR" property="createOperator" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_Operator" jdbcType="VARCHAR" property="lastOperator" />
+    <result column="last_Modify_Time" jdbcType="TIMESTAMP" property="lastModifyTime" />
+    <result column="platform_name" jdbcType="VARCHAR" property="platformName" />
+    <result column="logo_img_url_max" jdbcType="VARCHAR" property="logoImgUrlMax" />
+    <result column="logo_img_url_min" jdbcType="VARCHAR" property="logoImgUrlMin" />
+    <result column="customer_tel" jdbcType="VARCHAR" property="customerTel" />
+    <result column="weixin_public_develop_id" jdbcType="VARCHAR" property="weixinPublicDevelopId" />
+    <result column="weixin_public_app_id" jdbcType="VARCHAR" property="weixinPublicAppId" />
+    <result column="weixin_public_app_secret" jdbcType="VARCHAR" property="weixinPublicAppSecret" />
+    <result column="weixin_mini_app_id" jdbcType="VARCHAR" property="weixinMiniAppId" />
+    <result column="weixin_mini_app_secret" jdbcType="VARCHAR" property="weixinMiniAppSecret" />
+    <result column="weixin_public_http_url" jdbcType="VARCHAR" property="weixinPublicHttpUrl" />
+    <result column="bak1" jdbcType="VARCHAR" property="bak1" />
+    <result column="bak2" jdbcType="VARCHAR" property="bak2" />
+    <result column="bak3" jdbcType="VARCHAR" property="bak3" />
+    <result column="bak4" jdbcType="VARCHAR" property="bak4" />
+    <result column="bak5" jdbcType="VARCHAR" property="bak5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, is_Deleted, create_Operator, create_time, last_Operator, last_Modify_Time, platform_name, 
+    logo_img_url_max, logo_img_url_min, customer_tel, weixin_public_develop_id, weixin_public_app_id, 
+    weixin_public_app_secret, weixin_mini_app_id, weixin_mini_app_secret, weixin_public_http_url, 
+    bak1, bak2, bak3, bak4, bak5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_set_config
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from system_set_config
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiguan.carownerhomejob.domain.system.SystemSetConfig">
+    insert into system_set_config (id, is_Deleted, create_Operator, 
+      create_time, last_Operator, last_Modify_Time, 
+      platform_name, logo_img_url_max, logo_img_url_min, 
+      customer_tel, weixin_public_develop_id, weixin_public_app_id, 
+      weixin_public_app_secret, weixin_mini_app_id, 
+      weixin_mini_app_secret, weixin_public_http_url, 
+      bak1, bak2, bak3, bak4, 
+      bak5)
+    values (#{id,jdbcType=BIGINT}, #{isDeleted,jdbcType=CHAR}, #{createOperator,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{lastOperator,jdbcType=VARCHAR}, #{lastModifyTime,jdbcType=TIMESTAMP}, 
+      #{platformName,jdbcType=VARCHAR}, #{logoImgUrlMax,jdbcType=VARCHAR}, #{logoImgUrlMin,jdbcType=VARCHAR}, 
+      #{customerTel,jdbcType=VARCHAR}, #{weixinPublicDevelopId,jdbcType=VARCHAR}, #{weixinPublicAppId,jdbcType=VARCHAR}, 
+      #{weixinPublicAppSecret,jdbcType=VARCHAR}, #{weixinMiniAppId,jdbcType=VARCHAR}, 
+      #{weixinMiniAppSecret,jdbcType=VARCHAR}, #{weixinPublicHttpUrl,jdbcType=VARCHAR}, 
+      #{bak1,jdbcType=VARCHAR}, #{bak2,jdbcType=VARCHAR}, #{bak3,jdbcType=VARCHAR}, #{bak4,jdbcType=VARCHAR}, 
+      #{bak5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiguan.carownerhomejob.domain.system.SystemSetConfig">
+    insert into system_set_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="isDeleted != null">
+        is_Deleted,
+      </if>
+      <if test="createOperator != null">
+        create_Operator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastOperator != null">
+        last_Operator,
+      </if>
+      <if test="lastModifyTime != null">
+        last_Modify_Time,
+      </if>
+      <if test="platformName != null">
+        platform_name,
+      </if>
+      <if test="logoImgUrlMax != null">
+        logo_img_url_max,
+      </if>
+      <if test="logoImgUrlMin != null">
+        logo_img_url_min,
+      </if>
+      <if test="customerTel != null">
+        customer_tel,
+      </if>
+      <if test="weixinPublicDevelopId != null">
+        weixin_public_develop_id,
+      </if>
+      <if test="weixinPublicAppId != null">
+        weixin_public_app_id,
+      </if>
+      <if test="weixinPublicAppSecret != null">
+        weixin_public_app_secret,
+      </if>
+      <if test="weixinMiniAppId != null">
+        weixin_mini_app_id,
+      </if>
+      <if test="weixinMiniAppSecret != null">
+        weixin_mini_app_secret,
+      </if>
+      <if test="weixinPublicHttpUrl != null">
+        weixin_public_http_url,
+      </if>
+      <if test="bak1 != null">
+        bak1,
+      </if>
+      <if test="bak2 != null">
+        bak2,
+      </if>
+      <if test="bak3 != null">
+        bak3,
+      </if>
+      <if test="bak4 != null">
+        bak4,
+      </if>
+      <if test="bak5 != null">
+        bak5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="createOperator != null">
+        #{createOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperator != null">
+        #{lastOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null">
+        #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="platformName != null">
+        #{platformName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoImgUrlMax != null">
+        #{logoImgUrlMax,jdbcType=VARCHAR},
+      </if>
+      <if test="logoImgUrlMin != null">
+        #{logoImgUrlMin,jdbcType=VARCHAR},
+      </if>
+      <if test="customerTel != null">
+        #{customerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicDevelopId != null">
+        #{weixinPublicDevelopId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicAppId != null">
+        #{weixinPublicAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicAppSecret != null">
+        #{weixinPublicAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinMiniAppId != null">
+        #{weixinMiniAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinMiniAppSecret != null">
+        #{weixinMiniAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicHttpUrl != null">
+        #{weixinPublicHttpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="bak1 != null">
+        #{bak1,jdbcType=VARCHAR},
+      </if>
+      <if test="bak2 != null">
+        #{bak2,jdbcType=VARCHAR},
+      </if>
+      <if test="bak3 != null">
+        #{bak3,jdbcType=VARCHAR},
+      </if>
+      <if test="bak4 != null">
+        #{bak4,jdbcType=VARCHAR},
+      </if>
+      <if test="bak5 != null">
+        #{bak5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiguan.carownerhomejob.domain.system.SystemSetConfig">
+    update system_set_config
+    <set>
+      <if test="isDeleted != null">
+        is_Deleted = #{isDeleted,jdbcType=CHAR},
+      </if>
+      <if test="createOperator != null">
+        create_Operator = #{createOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOperator != null">
+        last_Operator = #{lastOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifyTime != null">
+        last_Modify_Time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="platformName != null">
+        platform_name = #{platformName,jdbcType=VARCHAR},
+      </if>
+      <if test="logoImgUrlMax != null">
+        logo_img_url_max = #{logoImgUrlMax,jdbcType=VARCHAR},
+      </if>
+      <if test="logoImgUrlMin != null">
+        logo_img_url_min = #{logoImgUrlMin,jdbcType=VARCHAR},
+      </if>
+      <if test="customerTel != null">
+        customer_tel = #{customerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicDevelopId != null">
+        weixin_public_develop_id = #{weixinPublicDevelopId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicAppId != null">
+        weixin_public_app_id = #{weixinPublicAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicAppSecret != null">
+        weixin_public_app_secret = #{weixinPublicAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinMiniAppId != null">
+        weixin_mini_app_id = #{weixinMiniAppId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinMiniAppSecret != null">
+        weixin_mini_app_secret = #{weixinMiniAppSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPublicHttpUrl != null">
+        weixin_public_http_url = #{weixinPublicHttpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="bak1 != null">
+        bak1 = #{bak1,jdbcType=VARCHAR},
+      </if>
+      <if test="bak2 != null">
+        bak2 = #{bak2,jdbcType=VARCHAR},
+      </if>
+      <if test="bak3 != null">
+        bak3 = #{bak3,jdbcType=VARCHAR},
+      </if>
+      <if test="bak4 != null">
+        bak4 = #{bak4,jdbcType=VARCHAR},
+      </if>
+      <if test="bak5 != null">
+        bak5 = #{bak5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiguan.carownerhomejob.domain.system.SystemSetConfig">
+    update system_set_config
+    set is_Deleted = #{isDeleted,jdbcType=CHAR},
+      create_Operator = #{createOperator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_Operator = #{lastOperator,jdbcType=VARCHAR},
+      last_Modify_Time = #{lastModifyTime,jdbcType=TIMESTAMP},
+      platform_name = #{platformName,jdbcType=VARCHAR},
+      logo_img_url_max = #{logoImgUrlMax,jdbcType=VARCHAR},
+      logo_img_url_min = #{logoImgUrlMin,jdbcType=VARCHAR},
+      customer_tel = #{customerTel,jdbcType=VARCHAR},
+      weixin_public_develop_id = #{weixinPublicDevelopId,jdbcType=VARCHAR},
+      weixin_public_app_id = #{weixinPublicAppId,jdbcType=VARCHAR},
+      weixin_public_app_secret = #{weixinPublicAppSecret,jdbcType=VARCHAR},
+      weixin_mini_app_id = #{weixinMiniAppId,jdbcType=VARCHAR},
+      weixin_mini_app_secret = #{weixinMiniAppSecret,jdbcType=VARCHAR},
+      weixin_public_http_url = #{weixinPublicHttpUrl,jdbcType=VARCHAR},
+      bak1 = #{bak1,jdbcType=VARCHAR},
+      bak2 = #{bak2,jdbcType=VARCHAR},
+      bak3 = #{bak3,jdbcType=VARCHAR},
+      bak4 = #{bak4,jdbcType=VARCHAR},
+      bak5 = #{bak5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="selectParameterName" resultMap="BaseResultMap">
+        SELECT *
+        FROM system_set_config
+        WHERE is_Deleted='n'
+  </select>
+
+  <update id="updateToken">
+        UPDATE system_set_config
+        SET bak1 = #{token},
+        last_Modify_Time = now()
+        WHERE
+         is_Deleted = 'n'
+  </update>
+</mapper>
