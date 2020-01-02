@@ -2,7 +2,7 @@ package com.zhiguan.carownerhomejob.domain.system;
 
 import java.util.Date;
 
-public class SystemJobInfo {
+public class SystemJobInfo  {
     private Long id;
 
     private String isDeleted;
